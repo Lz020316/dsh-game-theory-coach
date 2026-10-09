@@ -1,0 +1,27 @@
+# 博弈论思维教练 —— 插件自带的行声明（供 bundle 安装时按包名引用）。
+#
+# 方式 A（推荐，bundle 安装）：通过插件管理器（设置→插件 / plugin_manager）安装
+#   本目录，DSH 会把它装进 profile 的 node_modules 并写入 dsh.profile.bundles，
+#   重启应用后生效。此时 name 用包名即可被 Node 模块解析找到。
+#
+# 方式 B（源码 checkout 一次性加载）：
+#   pnpm dsh web --patch ./dsh-game-theory-coach/cordis.patch.yml
+#   此时需把下面 name 改成 dist/index.js 的绝对路径：
+#   name: '/Volumes/LZ_Storage/deepseek-normal/dsh-game-theory-coach/dist/index.js'
+- insert:
+    - id: game-theory-coach
+      name: dsh-game-theory-coach
+      config:
+        # 学员水平：beginner（零基础）/ intermediate / advanced
+        level: beginner
+        # 视角侧重：management（管理学）/ entrepreneurship（创业）/ software（软件团队）
+        perspectives:
+          - management
+          - entrepreneurship
+          - software
+        # 默认训练方式：case（案例驱动）/ simulation（情境模拟）/ lecture（概念精讲）
+        defaultMode: case
+        # 是否使用苏格拉底式提问引导
+        socratic: true
+        # 输出语言
+        language: zh

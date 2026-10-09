@@ -1,0 +1,44 @@
+{
+  "name": "dsh-game-theory-coach",
+  "version": "1.0.0",
+  "description": "博弈论思维训练教练：面向零基础，从管理学、创业、软件团队三个视角，用案例驱动 / 情境模拟 / 概念精讲+刻意练习三种方式训练博弈思维。可作为 DeepSeek Harness 的 Agent 预设，也可作为 bundle 安装。",
+  "keywords": [
+    "deepseek-harness",
+    "dsh",
+    "cordis",
+    "game-theory",
+    "coach",
+    "training",
+    "博弈论",
+    "思维训练"
+  ],
+  "license": "MIT",
+  "type": "module",
+  "main": "dist/index.js",
+  "exports": {
+    ".": "./dist/index.js",
+    "./package.json": "./package.json",
+    "./cordis.patch.yml": "./cordis.patch.yml"
+  },
+  "files": [
+    "dist",
+    "preset",
+    "cordis.patch.yml",
+    "README.md"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Lz020316/dsh-game-theory-coach.git"
+  },
+  "peerDependencies": {
+    "@deepseek-ai/cordis": "*",
+    "@deepseek-ai/dsh-tools": "*",
+    "@deepseek-ai/dsh-system-prompt": "*",
+    "@deepseek-ai/schemastery": "*"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  }
+}

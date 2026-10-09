@@ -1,0 +1,16 @@
+# 精简冒烟测试组合：只挂载 systemPrompt + tools 子系统，不启动完整 DSH。
+# 运行：./examples/run.sh
+- name: '@deepseek-ai/dsh-system-prompt'
+- name: '@deepseek-ai/dsh-tools'
+
+# 被测插件（相对路径以本文件所在目录为基准）。
+- name: '../dist/index.js'
+  config:
+    level: beginner
+    perspectives: [management, entrepreneurship, software]
+    defaultMode: case
+    socratic: true
+    language: zh
+
+# 代替模型依次调用三个课程工具，并在结束时退出。
+- name: './driver.ts'
